@@ -1,11 +1,11 @@
 # SALVAGE---RADAR-Interference-Mitigation-System
 Basic Steps to Run code:
 
-To run the code, you first need to run the scenario simulator called: FMCW_Rev_11.m. This will generate a file called temp_file1.mat. This file has the results from simulation
-You now need to run a file called  FMCW_Rev10_Analysis.m. This file leads the temp_file1.mat and implements the receiver DSP. This includes the proposed SALVAGE Algorithm. 
+To run the code, you first need to run the scenario simulator called: FMCW_Simulate.m. This will generate a file called temp_file1.mat. This file has the results from simulation
+You now need to run a file called  FMCW_Analyze.m. This file reads the temp_file1.mat and implements the receiver DSP. This includes the proposed SALVAGE Algorithm. 
 
 Setting the Scenario:
-To simulate a scenario, you will need to set values of distance, velocity, angle and slopes for the ego, targets and interferers. The variables have to be set in the FMCW_Rev_11.m file. These are as follows: 
+To simulate a scenario, you will need to set values of distance, velocity, angle and slopes for the ego, targets and interferers. The variables have to be set in the FMCW_Simulate.m file. These are as follows: 
 
 1. d_int: array containing distances of interferers. Preferably values between 5 and 100.
 Note that every interferer is also a target here. If you want to turn off the effect of interference, you can either leave this array blank, or set int_present to 0. 
@@ -21,13 +21,13 @@ Note that every interferer is also a target here. If you want to turn off the ef
 
 Reproducing Results:
 Case 1: No Mitigation 
-Set variable Inter_Frame_Gap to case 1 value in Simulation code (FMCW_Rev_11.m). Set Ignore_NDMC_flag to 1 in Analysis Code (FMCW_Rev10_Analysis.m)
+Set variable Inter_Frame_Gap to case 1 value in Simulation code (FMCW_Simulate.m). Set Ignore_NDMC_flag to 1 in Analysis Code (FMCW_Rev10_Analysis.m)
 
 Case 2: Time Dithering 
-Set variable Inter_Frame_Gap to case 3 value in Simulation code (FMCW_Rev_11.m). Set Ignore_NDMC_flag to 1 in Analysis Code (FMCW_Rev10_Analysis.m)
+Set variable Inter_Frame_Gap to case 3 value in Simulation code (FMCW_Simulate.m). Set Ignore_NDMC_flag to 1 in Analysis Code (FMCW_Rev10_Analysis.m)
 
 Case 3: SALVAGE 
-Set variable Inter_Frame_Gap to case 3 value in Simulation code (FMCW_Rev_11.m). Set Ignore_NDMC_flag to 0 in Analysis Code (FMCW_Rev10_Analysis.m)
+Set variable Inter_Frame_Gap to case 3 value in Simulation code (FMCW_Simulate.m). Set Ignore_NDMC_flag to 0 in Analysis Code (FMCW_Rev10_Analysis.m)
 
 Note: You may want to change the NDMC_threshold variable in the analysis. It triggers the mechanism and should be set at a value (in dBm) which is just slightly above a no interference case. Typical value has been set already. 
 
